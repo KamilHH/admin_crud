@@ -1,0 +1,9 @@
+@use "reset";
+@import "colors";
+
+#root{
+  font-family: 'Lato', sans-serif;
+  background: $background-color;
+  height: 100vh;
+}
+
