@@ -4,6 +4,7 @@ import {FaBars} from "react-icons/fa";
 import {AiOutlineClose} from "react-icons/ai";
 import {NavData} from "./NavData"
 import {IconContext} from 'react-icons'
+import {MdAccountCircle} from "react-icons/md";
 
 const Navbar = () => {
     const [sidebar, setSidebar] = useState(false);
@@ -15,6 +16,7 @@ const Navbar = () => {
                     <Link to='#' className='menu-bars'>
                         <FaBars onClick={showSidebar}/>
                     </Link>
+                    <MdAccountCircle className='avatar'/>
                 </div>
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
                     <ul className="nav-menu__items" onClick={showSidebar}>

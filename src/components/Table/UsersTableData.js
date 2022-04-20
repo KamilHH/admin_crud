@@ -1,5 +1,6 @@
 
 import React, {useState} from "react";
+import Avatar from "react-avatar";
 
 export const style = {
   position: 'absolute',
@@ -12,10 +13,21 @@ export const style = {
   boxShadow: 24,
   p: 4,
 };
-
-
-
-
+    export const columns = [
+    {title: 'ID', field: 'id', hidden: true,},
+    {
+        title: "Avatar",
+        render: rowData => <Avatar maxInitials={2} size={40} round={true}
+                                         name={`${rowData.name} ${rowData.surname}`}/>,
+    },
+    {title: 'Imię', field: 'name', },
+    {title: 'Nazwisko', field: 'surname', },
+    {title: 'Numer telefon', field: 'phone', },
+    {title: 'E-mail', field: 'email', },
+    {title: 'Typ zajęć', field: 'courseType', },
+    {title: "Rodzaj karnetu", field: 'subscriptionType', },
+    {title: 'Ważny do:', field: 'expireDate',},
+]
 export const localization = {
     body: {
         emptyDataSourceMessage: 'Brak danych do wyświetlenia',

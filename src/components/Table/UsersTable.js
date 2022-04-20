@@ -3,29 +3,15 @@ import MaterialTable from "material-table";
 import fireDatabase from "../../data/firebase";
 import {toast} from "react-toastify";
 import {Grid} from "@mui/material";
-import { localization, style} from "./UsersTableData";
+import { columns, localization, style} from "./UsersTableData";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import Avatar from "react-avatar";
+import {Info} from "@mui/icons-material";
 
 
  const UsersTable = () => {
-    const columns = [
-    {title: 'ID', field: 'id', hidden: true,},
-    {
-        title: "Avatar",
-        render: rowData => <Avatar  onClick={handleOpen} maxInitials={2} size={40} round={true}
-                                         name={`${rowData.name} ${rowData.surname}`}/>,
-    },
-    {title: 'Imię', field: 'name', },
-    {title: 'Nazwisko', field: 'surname', },
-    {title: 'Numer telefon', field: 'phone', },
-    {title: 'E-mail', field: 'email', },
-    {title: 'Typ zajęć', field: 'courseType', },
-    {title: "Rodzaj karnetu", field: 'subscriptionType', },
-    {title: 'Ważny do:', field: 'expireDate',},
-]
+
 
     const [data, setData] = useState([]);
     const [open, setOpen] = useState(false);
@@ -46,7 +32,7 @@ import Avatar from "react-avatar";
         <>
 
             <Grid container>
-                <Grid item xs={10} sx={{margin: '2rem auto', zIndex: '1', }}>
+                <Grid item xs={11} sx={{margin: '2rem auto', zIndex: '1', }}>
                     <MaterialTable
                         title=""
                         columns={columns}
@@ -55,6 +41,12 @@ import Avatar from "react-avatar";
                             actionsColumnIndex: -1,
                         }}
                         data={data}
+                        actions={[
+                            {
+                                icon: () => <Info/>,
+                                onClick: (event, rowData) => handleOpen(true)
+                            }
+                        ]}
                         localization={localization}
                         editable={{
                             onRowUpdate: (newData, oldData) =>
@@ -95,7 +87,7 @@ import Avatar from "react-avatar";
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        <h1>Imię i nazwisko</h1>
+                        <h1>{data.name}</h1>
                     </Typography>
                     <Typography id="modal-modal-description" sx={{mt: 2}}>
                         Dane użytkownika

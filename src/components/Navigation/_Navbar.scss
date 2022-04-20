@@ -4,9 +4,13 @@
   background: colors.$main-color;
   height: 80px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-
+  .avatar{
+    font-size: 3rem;
+    background: none;
+    margin-right: 2rem;
+  }
 }
 .menu-bars{
   margin-left: 2rem;
