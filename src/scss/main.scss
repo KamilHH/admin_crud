@@ -6,6 +6,8 @@
 #root{
   font-family: 'Lato', sans-serif;
   background: $background-color;
+  background-size: cover;
   height: 100vh;
+  overflow: auto;
 }
 
