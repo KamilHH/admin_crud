@@ -110,14 +110,13 @@ const UserForm = () => {
                             onChange={handleInputChange}
                         />
                     </Stack>
-                    <Stack sx={{margin: "1rem 0 0 0"}} direction="row" spacing={1}>
+                    <Stack sx={{margin: "1rem 0 0 0"}} direction="row" justifyContent="center" spacing={3}>
                         <Button variant={"contained"} size={"large"} color={"success"} type={"submit"}
                                 endIcon={<Save/>}>Zapisz </Button>
                         <Button onClick={clearFields} variant={"contained"} size={"large"} color={"error"}
                                 startIcon={<DeleteIcon/>}>Wyczyść</Button>
                     </Stack>
                 </form>
-
             </Paper>
         </Container>
     );
