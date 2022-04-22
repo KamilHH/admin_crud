@@ -90,7 +90,7 @@ import {Info} from "@mui/icons-material";
             >
                 {single && <Box sx={style}>
                     <Stack direction="column" spacing={2} >
-                        <Typography id="modal-modal-title" variant="h5" component="div"  >
+                        <Typography id="modal-modal-title" variant="h5" >
                             {single.name} {single.surname}
                         </Typography>
                         <Typography  id="modal-modal-description" sx={{mt: 2,display:'flex',flexDirection:'column'}}>

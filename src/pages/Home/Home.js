@@ -1,9 +1,10 @@
 import React from 'react';
 
 const Home = () => {
+
     return (
-        <div>
-            Homepage , statystyki
+        <div className="container">
+            HOMEPAGE
         </div>
     );
 };

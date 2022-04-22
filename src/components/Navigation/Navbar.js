@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {FaBars} from "react-icons/fa";
 import {AiOutlineClose} from "react-icons/ai";
@@ -6,10 +6,16 @@ import {NavData} from "./NavData"
 import {IconContext} from 'react-icons'
 import {MdAccountCircle} from "react-icons/md";
 
-const Navbar = ({data}) => {
+const Navbar = () => {
     const [sidebar, setSidebar] = useState(false);
-    const showSidebar = () => setSidebar(!sidebar);
+    const [name, setName] = useState()
 
+    useEffect(()=>{
+        setName(localStorage.getItem("username"));
+    }, [name])
+
+
+    const showSidebar = () => setSidebar(!sidebar);
 
     return (
         <>
@@ -19,7 +25,7 @@ const Navbar = ({data}) => {
                         <FaBars onClick={showSidebar}/>
                     </Link>
                     <div className="login">
-                        <span style={{color: 'white'}}>{data}</span>
+                        <span style={{color: 'white'}}>{name}</span>
                         <MdAccountCircle className='avatar'/>
                     </div>
                 </div>

@@ -8,21 +8,19 @@ import Users from "./pages/Users/Users";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import LoginModal from "./components/Login/Login";
-
+const name = localStorage.getItem("username")
 const App = () => {
-    const [storage, setStorage] = useState('');
+    const [storage, setStorage] = useState(name);
 
-    useEffect(()=>{
-        setStorage(localStorage.getItem("username"));
-    },[])
-    console.log(storage)
+
+
     return (
         <>
-            <ToastContainer position={"top-center"} autoClose={2_000}/>
+            <ToastContainer position={"top-center"} autoClose={1_000}/>
             {!storage && <LoginModal/>}
-            <Navbar data={storage}/>
+            <Navbar/>
             <Switch>
-                <Route exact path="/" component={Home}/>
+                <Route exact path="/"/>
                 <Route path="/new" component={New}/>
                 <Route exact path="/users" component={Users}/>
                 <Route path="/users/:userID" component={Single}/>

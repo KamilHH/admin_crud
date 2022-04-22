@@ -5,6 +5,7 @@ import {Button,Stack, FormControl, TextField, InputLabel} from "@mui/material";
 import Modal from "@mui/material/Modal";
 import {toast} from "react-toastify";
 
+
 const LoginModal = () => {
     const [open, setOpen] = useState(true);
     const [username, setUsername] = useState("");
@@ -18,6 +19,8 @@ const LoginModal = () => {
             localStorage.setItem("username", username)
             setOpen(!open)
             toast.success(`Witaj ${username}!`)
+
+
         }
     }
 
