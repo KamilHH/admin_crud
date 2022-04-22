@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import MaterialTable from "material-table";
 import fireDatabase from "../../data/firebase";
 import {toast} from "react-toastify";
-import {Grid} from "@mui/material";
-import { columns, localization, style} from "./UsersTableData";
+import {Button, Grid, Stack} from "@mui/material";
+import {columns, localization, style} from "./UsersTableData";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -15,8 +15,8 @@ import {Info} from "@mui/icons-material";
 
     const [data, setData] = useState([]);
     const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const [single, setSingle] = useState(null);
+    const handleOpen = () => setOpen(!open);
 
     useEffect(() => {
         fireDatabase.child("users").on("value", (snapshot) => {
@@ -37,14 +37,17 @@ import {Info} from "@mui/icons-material";
                         title=""
                         columns={columns}
                         options={{
-                            pageSize: 10,
+                            pageSize: 8,
                             actionsColumnIndex: -1,
                         }}
                         data={data}
                         actions={[
                             {
                                 icon: () => <Info/>,
-                                onClick: (event, rowData) => handleOpen(true)
+                                onClick: (event, rowData) => {
+                                    handleOpen(true)
+                                    setSingle(rowData)
+                                }
                             }
                         ]}
                         localization={localization}
@@ -82,17 +85,24 @@ import {Info} from "@mui/icons-material";
                 </Grid>
             </Grid>
             <Modal
+                children={true}
                 open={open}
-                onClose={handleClose}
             >
-                <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        <h1>{data.name}</h1>
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{mt: 2}}>
-                        Dane użytkownika
-                    </Typography>
-                </Box>
+                {single && <Box sx={style}>
+                    <Stack direction="column" spacing={2} >
+                        <Typography id="modal-modal-title" variant="h5" component="div"  >
+                            {single.name} {single.surname}
+                        </Typography>
+                        <Typography  id="modal-modal-description" sx={{mt: 2,display:'flex',flexDirection:'column'}}>
+                            <strong> Telefon: {single.phone}</strong>
+                            <strong> E-mail: {single.email}</strong>
+                            <strong> Typ zajęć: {single.courseType}</strong>
+                            <strong> Rodzaj karnetu: {single.subscriptionType}</strong>
+                            <strong> Ważny do: {single.expireDate}</strong>
+                        </Typography>
+                        <Button variant="outlined" color="error" onClick={handleOpen}>Zamknij</Button>
+                    </Stack>
+                </Box>}
             </Modal>
         </>
     );
