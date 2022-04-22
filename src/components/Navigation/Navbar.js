@@ -6,9 +6,11 @@ import {NavData} from "./NavData"
 import {IconContext} from 'react-icons'
 import {MdAccountCircle} from "react-icons/md";
 
-const Navbar = () => {
+const Navbar = ({data}) => {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
+
+
     return (
         <>
             <IconContext.Provider value={{color: 'white'}}>
@@ -16,7 +18,10 @@ const Navbar = () => {
                     <Link to='#' className='menu-bars'>
                         <FaBars onClick={showSidebar}/>
                     </Link>
-                    <MdAccountCircle className='avatar'/>
+                    <div className="login">
+                        <span style={{color: 'white'}}>{data}</span>
+                        <MdAccountCircle className='avatar'/>
+                    </div>
                 </div>
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
                     <ul className="nav-menu__items" onClick={showSidebar}>

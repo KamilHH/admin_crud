@@ -6,10 +6,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .login{
+    display: flex;
+    align-items: center;
+  }
   .avatar{
     font-size: 2.5rem;
     background: none;
-    margin-right: 2rem;
+    margin: 0 2rem 0 0.5rem;
   }
 }
 .menu-bars{
