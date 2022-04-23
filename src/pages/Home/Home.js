@@ -4,8 +4,10 @@ const Home = () => {
 
     return (
         <div className="container">
-            HOMEPAGE
+            HOME
         </div>
+
+
     );
 };
 

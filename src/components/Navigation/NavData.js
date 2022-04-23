@@ -4,7 +4,7 @@ import {AiFillHome, AiOutlineDatabase, AiOutlineUserAdd} from "react-icons/ai";
 export const NavData = [
     {
         title: 'Home',
-        path: '/',
+        path: '/home',
         icon: <AiFillHome/>,
         clName: 'nav-menu__text'
     },

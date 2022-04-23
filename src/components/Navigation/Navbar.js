@@ -6,15 +6,8 @@ import {NavData} from "./NavData"
 import {IconContext} from 'react-icons'
 import {MdAccountCircle} from "react-icons/md";
 
-const Navbar = () => {
+const Navbar = ({data}) => {
     const [sidebar, setSidebar] = useState(false);
-    const [name, setName] = useState()
-
-    useEffect(()=>{
-        setName(localStorage.getItem("username"));
-    }, [name])
-
-
     const showSidebar = () => setSidebar(!sidebar);
 
     return (
@@ -25,7 +18,7 @@ const Navbar = () => {
                         <FaBars onClick={showSidebar}/>
                     </Link>
                     <div className="login">
-                        <span style={{color: 'white'}}>{name}</span>
+                        <span style={{color: 'white'}}>{data}</span>
                         <MdAccountCircle className='avatar'/>
                     </div>
                 </div>
