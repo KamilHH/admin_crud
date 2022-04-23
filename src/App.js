@@ -14,6 +14,12 @@ import LoginModal from "./components/Login/Login";
 const App = () => {
     const [storage, setStorage] = useState('');
 
+    useEffect(()=>{
+        const name = localStorage.getItem("username");
+        setStorage(name)
+        console.log('use effect')
+    },[])
+
     return (
         <>
             <ToastContainer position={"top-center"} autoClose={1_000}/>

@@ -17,7 +17,8 @@ const LoginModal = ({changeState}) => {
         if (!username) {
             toast.error("Musisz podać imię")
         }else {
-            localStorage.setItem("username", changeState(username))
+            localStorage.setItem("username", username);
+            changeState(username)
             setOpen(!open)
             toast.success(`Witaj ${username}!`)
         }
