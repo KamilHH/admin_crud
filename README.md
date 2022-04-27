@@ -1,8 +1,6 @@
+#Final project for Coders Lab Javascript Developer Course. Admin Panel simulation, performing CRUD operations on data stored in Firebase realtime database.
+Technologies used: React, Sass, 
 # Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
 
 In the project directory, you can run:
 
