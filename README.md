@@ -1,7 +1,7 @@
 # Final project for Coders Lab Javascript Developer Course. 
-# Admin Panel simulation, performing CRUD operations.  
-# Data stored in Firebase realtime database.
-## Technologies used: React, Sass, 
+## Admin Panel simulation, performing CRUD operations.  
+### Data stored in Firebase realtime database.
+### Technologies used: React, Sass, 
 
 
 ### `npm start`
