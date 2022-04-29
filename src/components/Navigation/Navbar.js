@@ -30,11 +30,12 @@ const Navbar = ({data}) => {
                             </Link>
                         </li>
                         {NavData.map((data, i) => {
+                            const {clName, path, icon, title} = data
                             return (
-                                <li key={i} className={data.clName}>
-                                    <Link to={data.path}>
-                                        {data.icon}
-                                        <span>{data.title}</span>
+                                <li key={i} className={clName}>
+                                    <Link to={path}>
+                                        {icon}
+                                        <span>{title}</span>
                                     </Link>
                                 </li>
                             )
